@@ -1,7 +1,4 @@
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import Icon from '@/components/ui/icon';
 
 export default function Contacts() {
@@ -14,120 +11,116 @@ export default function Contacts() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12">
-        <div className="space-y-8">
-          <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-primary">Контактная информация</h2>
-            
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                <Icon name="Phone" size={24} className="text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-primary mb-1">Телефон</h3>
-                <p className="text-muted-foreground">+7 (999) 123-45-67</p>
-                <p className="text-sm text-muted-foreground">Ежедневно с 9:00 до 21:00</p>
-              </div>
+      <div className="max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-card border rounded-2xl p-8 space-y-6 hover-scale">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+              <Icon name="Phone" size={32} className="text-primary" />
             </div>
-
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                <Icon name="Mail" size={24} className="text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-primary mb-1">Email</h3>
-                <p className="text-muted-foreground">info@banyavenik.ru</p>
-                <p className="text-sm text-muted-foreground">Отвечаем в течение 24 часов</p>
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                <Icon name="MapPin" size={24} className="text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-primary mb-1">Адрес</h3>
-                <p className="text-muted-foreground">г. Москва, ул. Банная, д. 1</p>
-                <p className="text-sm text-muted-foreground">Офис и пункт выдачи заказов</p>
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                <Icon name="Clock" size={24} className="text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-primary mb-1">Режим работы</h3>
-                <p className="text-muted-foreground">Пн-Пт: 9:00 - 20:00</p>
-                <p className="text-muted-foreground">Сб-Вс: 10:00 - 18:00</p>
-              </div>
+            <div className="text-center">
+              <h3 className="text-xl font-bold text-primary mb-2">Телефон</h3>
+              <a 
+                href="tel:+79991234567" 
+                className="text-2xl font-semibold text-secondary hover:text-primary transition-colors"
+              >
+                +7 (999) 123-45-67
+              </a>
+              <p className="text-sm text-muted-foreground mt-2">Ежедневно с 9:00 до 21:00</p>
             </div>
           </div>
 
-          <div>
-            <h3 className="font-semibold text-primary mb-4">Мы в социальных сетях</h3>
-            <div className="flex space-x-3">
-              <Button variant="outline" size="icon" className="rounded-full hover-scale">
-                <Icon name="MessageCircle" size={24} />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-full hover-scale">
-                <Icon name="Instagram" size={24} />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-full hover-scale">
-                <Icon name="Youtube" size={24} />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-full hover-scale">
-                <Icon name="Facebook" size={24} />
-              </Button>
+          <div className="bg-card border rounded-2xl p-8 space-y-6 hover-scale">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+              <Icon name="Mail" size={32} className="text-primary" />
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-bold text-primary mb-2">Email</h3>
+              <a 
+                href="mailto:info@banyavenik.ru" 
+                className="text-xl font-semibold text-secondary hover:text-primary transition-colors break-all"
+              >
+                info@banyavenik.ru
+              </a>
+              <p className="text-sm text-muted-foreground mt-2">Отвечаем в течение 24 часов</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-card p-6 md:p-8 rounded-2xl border">
-          <h2 className="text-2xl font-bold text-primary mb-6">Напишите нам</h2>
-          <form className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name">Ваше имя</Label>
-              <Input id="name" placeholder="Иван Иванов" />
-            </div>
+        <div className="mt-8">
+          <h3 className="text-2xl font-bold text-primary text-center mb-6">Мессенджеры</h3>
+          <div className="flex justify-center space-x-6">
+            <a 
+              href="https://t.me/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group"
+            >
+              <div className="w-20 h-20 bg-gradient-to-br from-[#0088cc] to-[#229ED9] rounded-2xl flex items-center justify-center hover-scale shadow-lg transition-all group-hover:shadow-xl">
+                <Icon name="MessageCircle" size={40} className="text-white" />
+              </div>
+              <p className="text-center mt-2 text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">
+                Telegram
+              </p>
+            </a>
 
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="ivan@example.com" />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="phone">Телефон</Label>
-              <Input id="phone" type="tel" placeholder="+7 (999) 123-45-67" />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="message">Сообщение</Label>
-              <Textarea 
-                id="message" 
-                placeholder="Расскажите, чем мы можем вам помочь..."
-                rows={5}
-              />
-            </div>
-
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Icon name="Send" size={18} className="mr-2" />
-              Отправить сообщение
-            </Button>
-          </form>
+            <a 
+              href="https://wa.me/79991234567" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group"
+            >
+              <div className="w-20 h-20 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-2xl flex items-center justify-center hover-scale shadow-lg transition-all group-hover:shadow-xl">
+                <Icon name="MessageSquare" size={40} className="text-white" />
+              </div>
+              <p className="text-center mt-2 text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">
+                WhatsApp
+              </p>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div className="bg-muted/30 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl font-bold text-primary mb-4">Есть вопросы?</h2>
-        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-          Наши специалисты с удовольствием проконсультируют вас по выбору веника, 
-          условиям доставки и любым другим вопросам.
+      <div className="bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl p-8 md:p-12 text-center max-w-3xl mx-auto">
+        <Icon name="Clock" size={48} className="mx-auto text-primary mb-4" />
+        <h2 className="text-2xl font-bold text-primary mb-4">Режим работы</h2>
+        <div className="space-y-2 text-lg">
+          <p className="text-muted-foreground">
+            <span className="font-semibold">Пн-Пт:</span> 9:00 - 20:00
+          </p>
+          <p className="text-muted-foreground">
+            <span className="font-semibold">Сб-Вс:</span> 10:00 - 18:00
+          </p>
+        </div>
+      </div>
+
+      <div className="text-center space-y-6 py-8">
+        <h2 className="text-3xl font-bold text-primary">Готовы сделать заказ?</h2>
+        <p className="text-muted-foreground max-w-xl mx-auto">
+          Напишите нам в любой удобный мессенджер или позвоните!
         </p>
-        <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-          <Icon name="Phone" size={20} className="mr-2" />
-          Позвонить нам
-        </Button>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button 
+            size="lg" 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+            asChild
+          >
+            <a href="tel:+79991234567">
+              <Icon name="Phone" size={20} className="mr-2" />
+              Позвонить
+            </a>
+          </Button>
+          <Button 
+            size="lg" 
+            variant="outline"
+            className="px-8"
+            asChild
+          >
+            <a href="https://wa.me/79991234567" target="_blank" rel="noopener noreferrer">
+              <Icon name="MessageSquare" size={20} className="mr-2" />
+              Написать в WhatsApp
+            </a>
+          </Button>
+        </div>
       </div>
     </div>
   );

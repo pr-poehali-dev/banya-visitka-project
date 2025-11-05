@@ -1,96 +1,56 @@
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import Icon from '@/components/ui/icon';
 
 export default function Footer() {
   return (
     <footer className="bg-muted/30 border-t mt-20">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <span className="text-2xl">🧖‍♂️</span>
-              <span className="text-xl font-bold text-primary">БаняВеник</span>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Лучшие веники для русской бани. Качество и традиции с 2010 года.
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+          <div className="flex items-center space-x-2">
+            <span className="text-3xl">🧖‍♂️</span>
+            <span className="text-2xl font-bold text-primary">БаняВеник</span>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <p className="text-sm text-muted-foreground hidden md:block mr-4">
+              Мы в социальных сетях:
             </p>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4 text-primary">Навигация</h4>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">Главная</Link></li>
-              <li><Link to="/catalog" className="text-sm text-muted-foreground hover:text-primary transition-colors">Каталог</Link></li>
-              <li><Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">О нас</Link></li>
-              <li><Link to="/contacts" className="text-sm text-muted-foreground hover:text-primary transition-colors">Контакты</Link></li>
-              <li><Link to="/promotions" className="text-sm text-muted-foreground hover:text-primary transition-colors">Акции</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4 text-primary">Контакты</h4>
-            <ul className="space-y-2">
-              <li className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Icon name="Phone" size={16} />
-                <span>+7 (999) 123-45-67</span>
-              </li>
-              <li className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Icon name="Mail" size={16} />
-                <span>info@banyavenik.ru</span>
-              </li>
-              <li className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Icon name="MapPin" size={16} />
-                <span>Москва, ул. Банная, 1</span>
-              </li>
-            </ul>
-            <div className="flex space-x-2 mt-4">
-              <Button variant="outline" size="icon" className="rounded-full">
-                <Icon name="MessageCircle" size={18} />
+            <a 
+              href="https://t.me/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group"
+            >
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="rounded-full hover-scale w-12 h-12 bg-gradient-to-br from-[#0088cc]/10 to-[#229ED9]/10 hover:from-[#0088cc]/20 hover:to-[#229ED9]/20 border-[#0088cc]/30"
+              >
+                <Icon name="MessageCircle" size={24} className="text-[#0088cc] group-hover:scale-110 transition-transform" />
               </Button>
-              <Button variant="outline" size="icon" className="rounded-full">
-                <Icon name="Instagram" size={18} />
+            </a>
+            <a 
+              href="https://wa.me/79991234567" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group"
+            >
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="rounded-full hover-scale w-12 h-12 bg-gradient-to-br from-[#25D366]/10 to-[#128C7E]/10 hover:from-[#25D366]/20 hover:to-[#128C7E]/20 border-[#25D366]/30"
+              >
+                <Icon name="MessageSquare" size={24} className="text-[#25D366] group-hover:scale-110 transition-transform" />
               </Button>
-              <Button variant="outline" size="icon" className="rounded-full">
-                <Icon name="Youtube" size={18} />
-              </Button>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4 text-primary">Подписка на новости</h4>
-            <p className="text-sm text-muted-foreground mb-4">
-              Узнавайте первыми о новинках и акциях!
-            </p>
-            <div className="flex space-x-2">
-              <Input 
-                type="email" 
-                placeholder="Ваш email" 
-                className="flex-1"
-              />
-              <Button className="bg-primary hover:bg-primary/90">
-                <Icon name="Send" size={18} />
-              </Button>
-            </div>
+            </a>
           </div>
         </div>
 
-        <Separator className="my-8" />
+        <Separator className="my-6" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-sm text-muted-foreground">
-            © 2024 БаняВеник. Все права защищены.
-          </p>
-          <div className="flex space-x-4">
-            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Политика конфиденциальности
-            </Link>
-            <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Условия использования
-            </Link>
-          </div>
+        <div className="text-center text-sm text-muted-foreground">
+          <p>© 2024 БаняВеник. Все права защищены.</p>
         </div>
       </div>
     </footer>

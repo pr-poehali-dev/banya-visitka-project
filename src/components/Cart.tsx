@@ -3,7 +3,9 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter } from '@/components/ui/sheet';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
+import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
+import { Link } from 'react-router-dom';
 
 interface CartProps {
   isOpen: boolean;
@@ -14,7 +16,12 @@ interface CartProps {
 }
 
 export default function Cart({ isOpen, onClose, items, onUpdateQuantity, onRemoveItem }: CartProps) {
-  const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  
+  const hasDiscount = totalQuantity > 10;
+  const discount = hasDiscount ? subtotal * 0.1 : 0;
+  const total = subtotal - discount;
 
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
@@ -24,9 +31,15 @@ export default function Cart({ isOpen, onClose, items, onUpdateQuantity, onRemov
         </SheetHeader>
 
         {items.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-[60vh] space-y-4">
+          <div className="flex flex-col items-center justify-center h-[60vh] space-y-6">
             <Icon name="ShoppingCart" size={64} className="text-muted-foreground" />
             <p className="text-lg text-muted-foreground">Корзина пуста</p>
+            <Link to="/catalog" onClick={onClose}>
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Icon name="ShoppingBag" size={18} className="mr-2" />
+                Перейти в каталог
+              </Button>
+            </Link>
           </div>
         ) : (
           <>
@@ -78,9 +91,33 @@ export default function Cart({ isOpen, onClose, items, onUpdateQuantity, onRemov
             <Separator className="my-4" />
 
             <SheetFooter className="flex flex-col space-y-4">
-              <div className="flex justify-between items-center text-lg font-bold">
-                <span>Итого:</span>
-                <span className="text-primary text-2xl">{total} ₽</span>
+              {hasDiscount && (
+                <div className="bg-accent/10 border border-accent rounded-lg p-3 animate-bounce-in">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Icon name="Gift" size={20} className="text-accent" />
+                      <span className="text-sm font-medium text-accent">Скидка 10% (более 10 шт.)</span>
+                    </div>
+                    <Badge variant="secondary" className="bg-accent text-white">-{discount.toFixed(0)} ₽</Badge>
+                  </div>
+                </div>
+              )}
+              <div className="space-y-2">
+                <div className="flex justify-between items-center text-sm text-muted-foreground">
+                  <span>Товаров ({totalQuantity} шт.):</span>
+                  <span>{subtotal} ₽</span>
+                </div>
+                {hasDiscount && (
+                  <div className="flex justify-between items-center text-sm text-accent">
+                    <span>Скидка:</span>
+                    <span>-{discount.toFixed(0)} ₽</span>
+                  </div>
+                )}
+                <Separator />
+                <div className="flex justify-between items-center text-lg font-bold">
+                  <span>Итого:</span>
+                  <span className="text-primary text-2xl">{total.toFixed(0)} ₽</span>
+                </div>
               </div>
               <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 text-lg">
                 <Icon name="CreditCard" size={20} className="mr-2" />
