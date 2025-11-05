@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 import Icon from '@/components/ui/icon';
 
 export default function Footer() {
@@ -45,12 +44,6 @@ export default function Footer() {
               </Button>
             </a>
           </div>
-        </div>
-
-        <Separator className="my-6" />
-
-        <div className="text-center text-sm text-muted-foreground">
-          <p>© 2024 БаняВеник. Все права защищены.</p>
         </div>
       </div>
     </footer>

@@ -25,13 +25,13 @@ export default function Cart({ isOpen, onClose, items, onUpdateQuantity, onRemov
 
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
-      <SheetContent side="right" className="w-full sm:max-w-lg animate-slide-in-right">
+      <SheetContent side="right" className="w-full sm:max-w-lg animate-slide-in-right flex flex-col">
         <SheetHeader>
           <SheetTitle className="text-2xl font-bold text-primary">Корзина</SheetTitle>
         </SheetHeader>
 
         {items.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-[60vh] space-y-6">
+          <div className="flex flex-col items-center justify-center flex-1 space-y-6">
             <Icon name="ShoppingCart" size={64} className="text-muted-foreground" />
             <p className="text-lg text-muted-foreground">Корзина пуста</p>
             <Link to="/catalog" onClick={onClose}>
@@ -43,8 +43,8 @@ export default function Cart({ isOpen, onClose, items, onUpdateQuantity, onRemov
           </div>
         ) : (
           <>
-            <ScrollArea className="h-[calc(100vh-200px)] mt-6">
-              <div className="space-y-4">
+            <ScrollArea className="flex-1 mt-6 mb-4">
+              <div className="space-y-4 pr-4">
                 {items.map((item) => (
                   <div key={item.id} className="flex gap-4 animate-fade-in">
                     <img
@@ -88,9 +88,7 @@ export default function Cart({ isOpen, onClose, items, onUpdateQuantity, onRemov
               </div>
             </ScrollArea>
 
-            <Separator className="my-4" />
-
-            <SheetFooter className="flex flex-col space-y-4">
+            <div className="border-t pt-4 space-y-4">
               {hasDiscount && (
                 <div className="bg-accent/10 border border-accent rounded-lg p-3 animate-bounce-in">
                   <div className="flex items-center justify-between">
@@ -123,7 +121,7 @@ export default function Cart({ isOpen, onClose, items, onUpdateQuantity, onRemov
                 <Icon name="CreditCard" size={20} className="mr-2" />
                 Оформить заказ
               </Button>
-            </SheetFooter>
+            </div>
           </>
         )}
       </SheetContent>

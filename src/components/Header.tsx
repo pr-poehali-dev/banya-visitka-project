@@ -18,7 +18,6 @@ export default function Header({ cartItemsCount, onCartOpen }: HeaderProps) {
     { name: 'Главная', path: '/' },
     { name: 'Каталог', path: '/catalog' },
     { name: 'О нас', path: '/about' },
-    { name: 'Контакты', path: '/contacts' },
     { name: 'Акции', path: '/promotions' }
   ];
 

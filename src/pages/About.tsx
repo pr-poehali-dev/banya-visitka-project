@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 export default function About() {
@@ -65,47 +66,97 @@ export default function About() {
         </div>
       </section>
 
-      <section className="space-y-8">
-        <h2 className="text-3xl font-bold text-center text-primary">Процесс производства</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="text-center space-y-4 p-6 bg-card rounded-lg hover-scale">
-            <div className="w-12 h-12 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-              <span className="text-2xl font-bold text-primary">1</span>
+      <section className="bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl p-8 md:p-12">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8 text-primary">Свяжитесь с нами</h2>
+          
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-card/80 border rounded-2xl p-6 space-y-4 hover-scale">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                <Icon name="Phone" size={24} className="text-primary" />
+              </div>
+              <div className="text-center">
+                <h3 className="text-lg font-bold text-primary mb-2">Телефон</h3>
+                <a 
+                  href="tel:+79991234567" 
+                  className="text-xl font-semibold text-secondary hover:text-primary transition-colors"
+                >
+                  +7 (999) 123-45-67
+                </a>
+              </div>
             </div>
-            <h3 className="font-bold text-primary">Сбор</h3>
-            <p className="text-sm text-muted-foreground">
-              Заготавливаем ветки в экологически чистых районах в нужный сезон
-            </p>
+
+            <div className="bg-card/80 border rounded-2xl p-6 space-y-4 hover-scale">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                <Icon name="Mail" size={24} className="text-primary" />
+              </div>
+              <div className="text-center">
+                <h3 className="text-lg font-bold text-primary mb-2">Email</h3>
+                <a 
+                  href="mailto:info@banyavenik.ru" 
+                  className="text-lg font-semibold text-secondary hover:text-primary transition-colors break-all"
+                >
+                  info@banyavenik.ru
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div className="text-center space-y-4 p-6 bg-card rounded-lg hover-scale">
-            <div className="w-12 h-12 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-              <span className="text-2xl font-bold text-primary">2</span>
-            </div>
-            <h3 className="font-bold text-primary">Сортировка</h3>
-            <p className="text-sm text-muted-foreground">
-              Отбираем только лучшие ветки с здоровыми листьями
-            </p>
-          </div>
+          <div className="text-center space-y-6">
+            <h3 className="text-xl font-bold text-primary">Напишите нам</h3>
+            <div className="flex justify-center space-x-6">
+              <a 
+                href="https://t.me/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <div className="w-20 h-20 bg-gradient-to-br from-[#0088cc] to-[#229ED9] rounded-2xl flex items-center justify-center hover-scale shadow-lg transition-all group-hover:shadow-xl">
+                  <Icon name="MessageCircle" size={40} className="text-white" />
+                </div>
+                <p className="text-center mt-2 text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">
+                  Telegram
+                </p>
+              </a>
 
-          <div className="text-center space-y-4 p-6 bg-card rounded-lg hover-scale">
-            <div className="w-12 h-12 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-              <span className="text-2xl font-bold text-primary">3</span>
+              <a 
+                href="https://wa.me/79991234567" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <div className="w-20 h-20 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-2xl flex items-center justify-center hover-scale shadow-lg transition-all group-hover:shadow-xl">
+                  <Icon name="MessageSquare" size={40} className="text-white" />
+                </div>
+                <p className="text-center mt-2 text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">
+                  WhatsApp
+                </p>
+              </a>
             </div>
-            <h3 className="font-bold text-primary">Вязка</h3>
-            <p className="text-sm text-muted-foreground">
-              Вяжем веники вручную по традиционной технологии
-            </p>
-          </div>
 
-          <div className="text-center space-y-4 p-6 bg-card rounded-lg hover-scale">
-            <div className="w-12 h-12 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-              <span className="text-2xl font-bold text-primary">4</span>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+                asChild
+              >
+                <a href="tel:+79991234567">
+                  <Icon name="Phone" size={20} className="mr-2" />
+                  Позвонить
+                </a>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="px-8 bg-card/50"
+                asChild
+              >
+                <a href="https://wa.me/79991234567" target="_blank" rel="noopener noreferrer">
+                  <Icon name="MessageSquare" size={20} className="mr-2" />
+                  Написать в WhatsApp
+                </a>
+              </Button>
             </div>
-            <h3 className="font-bold text-primary">Упаковка</h3>
-            <p className="text-sm text-muted-foreground">
-              Упаковываем и отправляем вам свежие веники
-            </p>
           </div>
         </div>
       </section>

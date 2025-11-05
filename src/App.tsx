@@ -8,7 +8,6 @@ import Cart from '@/components/Cart';
 import Home from '@/pages/Home';
 import Catalog from '@/pages/Catalog';
 import About from '@/pages/About';
-import Contacts from '@/pages/Contacts';
 import Promotions from '@/pages/Promotions';
 import NotFound from '@/pages/NotFound';
 import { Product, CartItem } from '@/types/product';
@@ -87,7 +86,6 @@ function App() {
               element={<Catalog onAddToCart={handleAddToCart} />} 
             />
             <Route path="/about" element={<About />} />
-            <Route path="/contacts" element={<Contacts />} />
             <Route path="/promotions" element={<Promotions />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
